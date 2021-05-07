@@ -1,6 +1,55 @@
 # PAD 
+[![Stargazers][stars-shield]][stars-url]
+[![Commit Activity][commits-shield]][commits-url]
+[![Last Commit][last-commit-shield]][last-commit-url]
+[![Issues][issues-shield]][issues-url]
+[![Contributors][contributors-shield]][contributors-url]
+[![License][license-shield]][license-url]
 
-EShop project
+<br />
+<p align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Сюда надо воткнуть лого" width="80" height="80">
+  </a>
+
+  <h2 align="center">EShop project</h2>
+</p>
+<h4 align="center">Multifunctional awesome online clothing store and more.</h4>
+
+<p align="center">
+  <a href="#">Table of contents</a> •
+  <a href="https://github.com/ITScoiatael/PAD/issues">Report a bug</a> •
+  <a href="#license">License</a>
+</p>
+
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li>
+        <a href="#usage">Usage</a>
+        <ul>
+        <li><a href="#frontend">Frontend</a></li>
+        <li><a href="#backend">Backend</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+</details>
+
 
 ### To run
 
@@ -8,7 +57,9 @@ EShop project
 ```
 
 
-## Backend
+## Backend 
+<img align="right" src="https://img.shields.io/github/go-mod/go-version/ITScoiatael/PAD/main?filename=backend%2Fgo.mod&style=for-the-badge" alt="GoLang Version">
+<br>
 
 Installation and launch:
 ```bash
@@ -22,9 +73,9 @@ GraphQL playground:
 http://localhost:8080/
 
 ### IDs
-The database is based on the use of UUID.
+The online store database is built on the basis of UUID.
 
-UUID is Universally Unique Identifiers, or UUIDS, are 128 bit numbers, composed of 16 octets and represented as 32 base-16 characters, that can be used to identify information across a computer system. 
+What is a UUID. Universally Unique Identifiers, or UUIDS, are 128 bit numbers, composed of 16 octets and represented as 32 base-16 characters, that can be used to identify information across a computer system. 
 
 Example:
 > 123e4567-e89b-12d3-a456-426614174000
@@ -84,3 +135,17 @@ Example:
 - [Vlad](https://github.com/MiyRon-Code)
 
 Penetration | Ass we can | Dungeon Master
+
+
+[contributors-shield]: https://img.shields.io/github/contributors/ITScoiatael/PAD.svg?style=for-the-badge
+[contributors-url]: https://github.com/ITScoiatael/PAD/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/ITScoiatael/PAD.svg?style=for-the-badge
+[stars-url]: https://github.com/ITScoiatael/PAD/stargazers
+[commits-shield]: https://img.shields.io/github/commit-activity/m/ITScoiatael/PAD?style=for-the-badge
+[commits-url]: https://github.com/ITScoiatael/PAD/commits/main
+[last-commit-shield]: https://img.shields.io/github/last-commit/ITScoiatael/PAD?style=for-the-badge
+[last-commit-url]: https://github.com/ITScoiatael/PAD/commits/main
+[issues-shield]: https://img.shields.io/github/issues/ITScoiatael/PAD.svg?style=for-the-badge
+[issues-url]: https://github.com/ITScoiatael/PAD/issues
+[license-shield]: https://img.shields.io/github/license/ITScoiatael/PAD.svg?style=for-the-badge
+[license-url]: https://github.com/ITScoiatael/PAD/blob/master/LICENSE.txt
