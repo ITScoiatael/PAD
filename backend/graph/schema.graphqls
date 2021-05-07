@@ -1,28 +1,129 @@
-# GraphQL schema example
-#
-# https://gqlgen.com/getting-started/
-
-type Todo {
+type Admin {
   id: ID!
-  text: String!
-  done: Boolean!
-  user: User!
+  login: String!
+  password: String!
 }
 
-type User {
+type Category {
   id: ID!
   name: String!
+  image_url: String!
+  products: [Product!]
 }
+
+type Product {
+  id: ID!
+  name: String!
+  description: String!
+  image_url: String!
+  sub_products: [Sub_Product!]
+}
+
+type Sub_Product {
+  id: ID!
+  price: Float!
+  size: String!
+  color: String!
+  amount: Int!
+}
+
+type Customer {
+  id: ID!
+  name: String!
+  email: String!
+  phone: String!
+  address: String!
+  region: String!
+  cc_number: String!
+  orders: [Order!]
+}
+
+type Order {
+  id: ID!
+  amount: Int!
+  created_at: Date!
+  products: [Sub_Product!]!
+}
+
+scalar Date
+
 
 type Query {
-  todos: [Todo!]!
-}
+  Categories: [Category]
+  Category(id: ID!): Category
 
-input NewTodo {
-  text: String!
-  userId: String!
+  Customers: [Customer]
+  Customer(id: ID!): Customer
+
+  Products(category_id: ID!): [Product]
+  Product(id: ID!): Product
+
+  SubProducts(product_id: ID!): [Sub_Product]
+  SubProduct(id: ID!): Sub_Product
+
+  Orders(customer_id: ID!): [Order]
+  Order(id: ID!): Order
+
+  OrderedSubProducts(order_id: ID!): [Sub_Product]
+  OrderedSubProduct(id: ID!): Sub_Product
+
+  Admins: [Admin]
+  Admin(id: ID!): Admin
 }
 
 type Mutation {
-  createTodo(input: NewTodo!): Todo!
+  createCategory (
+    name: String!
+    image_url: String!
+  ): Category
+  deleteCategory(id: ID!): Category
+
+  addProduct (
+    category_id: ID!
+    name: String!
+    description: String!
+    image_url: String!
+  ) : Product
+  deleteProduct (id: ID!): Product
+
+  createSubProduct (
+    product_id: ID!
+    price: Float!
+    size: String!
+    color: String!
+    amount: Int!
+  ) : Sub_Product
+  deleteSubProduct(id: ID!): Sub_Product
+
+  createCustomer(
+    name: String!
+    email: String!
+    phone: String!
+    address: String!
+    region: String!
+    cc_number: String!
+  ): Customer
+  deleteCustomer(id: ID!): Customer
+
+  addOrder(
+    customer_id: ID!
+    amount: Int!
+    created_at: Date!
+  ): Order
+  removeOrder(id: ID!): Order
+  
+  addSubProduct(
+    order_id: ID!
+    price: Float!
+    size: String!
+    color: String!
+    amount: Int!
+  ): Sub_Product
+  removeSubProduct(id: ID!): Sub_Product
+
+  createAdmin(
+    login: String!
+    password: String!
+  ) : Admin
+  deleteAdmin(id: ID!): Admin
 }

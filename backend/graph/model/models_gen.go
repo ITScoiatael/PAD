@@ -2,19 +2,49 @@
 
 package model
 
-type NewTodo struct {
-	Text   string `json:"text"`
-	UserID string `json:"userId"`
+type Admin struct {
+	ID       string `json:"id"`
+	Login    string `json:"login"`
+	Password string `json:"password"`
 }
 
-type Todo struct {
-	ID   string `json:"id"`
-	Text string `json:"text"`
-	Done bool   `json:"done"`
-	User *User  `json:"user"`
+type Category struct {
+	ID       string     `json:"id"`
+	Name     string     `json:"name"`
+	ImageURL string     `json:"image_url"`
+	Products []*Product `json:"products"`
 }
 
-type User struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+type Customer struct {
+	ID       string   `json:"id"`
+	Name     string   `json:"name"`
+	Email    string   `json:"email"`
+	Phone    string   `json:"phone"`
+	Address  string   `json:"address"`
+	Region   string   `json:"region"`
+	CcNumber string   `json:"cc_number"`
+	Orders   []*Order `json:"orders"`
+}
+
+type Order struct {
+	ID        string        `json:"id"`
+	Amount    int           `json:"amount"`
+	CreatedAt string        `json:"created_at"`
+	Products  []*SubProduct `json:"products"`
+}
+
+type Product struct {
+	ID          string        `json:"id"`
+	Name        string        `json:"name"`
+	Description string        `json:"description"`
+	ImageURL    string        `json:"image_url"`
+	SubProducts []*SubProduct `json:"sub_products"`
+}
+
+type SubProduct struct {
+	ID     string  `json:"id"`
+	Price  float64 `json:"price"`
+	Size   string  `json:"size"`
+	Color  string  `json:"color"`
+	Amount int     `json:"amount"`
 }
