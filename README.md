@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Сюда надо воткнуть лого" width="80" height="80">
+    <img src="images/logo128.png" alt="PAD Logo">
   </a>
 
   <h2 align="center">EShop project</h2>
