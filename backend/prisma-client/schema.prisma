@@ -1,0 +1,61 @@
+generator db {
+    provider = "go run github.com/prisma/prisma-client-go"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = "file:../pad.db"
+}
+
+model Admin {
+    id       String @id
+    login    String
+    password String
+}
+
+model Category {
+    id        String @id
+    name      String
+    image_url String
+}
+
+model Customer {
+    id        String @id
+    name      String
+    email     String
+    phone     String
+    address   String
+    region    String
+    cc_number String
+}
+
+model OrderedProduct {
+    id             String  @id
+    amount         Int
+    order_id       String?
+    sub_product_id String?
+}
+
+model Order {
+    id          String  @id
+    amount      Int
+    created_at  String
+    customer_id String?
+}
+
+model Product {
+    id          String  @id
+    name        String
+    description String
+    image_url   String
+    category_id String?
+}
+
+model Sub_Product {
+    id         String  @id
+    price      Float
+    size       String
+    color      String
+    amount     Int
+    product_id String?
+}

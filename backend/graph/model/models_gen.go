@@ -27,10 +27,15 @@ type Customer struct {
 }
 
 type Order struct {
-	ID        string        `json:"id"`
-	Amount    int           `json:"amount"`
-	CreatedAt string        `json:"created_at"`
-	Products  []*SubProduct `json:"products"`
+	ID              string            `json:"id"`
+	Amount          int               `json:"amount"`
+	CreatedAt       string            `json:"created_at"`
+	OrderedProducts []*OrderedProduct `json:"ordered_products"`
+}
+
+type OrderedProduct struct {
+	ID         string      `json:"id"`
+	SubProduct *SubProduct `json:"sub_product"`
 }
 
 type Product struct {

@@ -27,6 +27,11 @@ type Sub_Product {
   amount: Int!
 }
 
+type Ordered_Product {
+  id: ID!
+  sub_product: Sub_Product!
+}
+
 type Customer {
   id: ID!
   name: String!
@@ -42,7 +47,7 @@ type Order {
   id: ID!
   amount: Int!
   created_at: Date!
-  products: [Sub_Product!]!
+  ordered_products: [Ordered_Product!]!
 }
 
 scalar Date
@@ -55,6 +60,7 @@ type Query {
   Customers: [Customer]
   Customer(id: ID!): Customer
 
+  AllProducts: [Product]
   Products(category_id: ID!): [Product]
   Product(id: ID!): Product
 
@@ -76,6 +82,11 @@ type Mutation {
     name: String!
     image_url: String!
   ): Category
+  editCategory(
+    id: ID!
+    name: String
+    image_url: String
+  ): Category
   deleteCategory(id: ID!): Category
 
   addProduct (
@@ -83,6 +94,12 @@ type Mutation {
     name: String!
     description: String!
     image_url: String!
+  ) : Product
+  editProduct (
+    category_id: ID!
+    name: String
+    description: String
+    image_url: String
   ) : Product
   deleteProduct (id: ID!): Product
 
@@ -92,6 +109,13 @@ type Mutation {
     size: String!
     color: String!
     amount: Int!
+  ) : Sub_Product
+  editSubProduct (
+    product_id: ID!
+    price: Float
+    size: String
+    color: String
+    amount: Int
   ) : Sub_Product
   deleteSubProduct(id: ID!): Sub_Product
 
@@ -103,6 +127,15 @@ type Mutation {
     region: String!
     cc_number: String!
   ): Customer
+  editCustomer(
+    id: ID!
+    name: String
+    email: String
+    phone: String
+    address: String
+    region: String
+    cc_number: String
+  ): Customer
   deleteCustomer(id: ID!): Customer
 
   addOrder(
@@ -110,20 +143,35 @@ type Mutation {
     amount: Int!
     created_at: Date!
   ): Order
+  editOrder(
+    id: ID!
+    customer_id: ID
+    amount: Int
+    created_at: Date
+  ): Order
   removeOrder(id: ID!): Order
   
-  addSubProduct(
+  addOrderedProduct(
     order_id: ID!
-    price: Float!
-    size: String!
-    color: String!
+    sub_product_id: ID!
     amount: Int!
-  ): Sub_Product
-  removeSubProduct(id: ID!): Sub_Product
+  ): Ordered_Product
+  editOrderedProduct(
+    id: ID!
+    order_id: ID
+    sub_product_id: ID
+    amount: Int
+  ): Ordered_Product
+  removeOrderedProduct(id: ID!): Ordered_Product
 
   createAdmin(
     login: String!
     password: String!
+  ) : Admin
+  editAdmin(
+    id: ID!
+    login: String
+    password: String
   ) : Admin
   deleteAdmin(id: ID!): Admin
 }
