@@ -80,8 +80,9 @@ $ npm run generate
 Installation and launch:
 ```bash
 $ cd backend
-$ go get github.com/99designs/gqlgen
-$ go get github.com/google/uuid
+$ go mod tidy
+$ go run github.com/prisma/prisma-client-go generate
+$ cd prisma
 $ go run ./server.go
 ```
 
