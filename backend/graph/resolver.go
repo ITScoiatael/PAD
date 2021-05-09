@@ -1,10 +1,6 @@
 package graph
 
-import "graphql-server/prisma-client/db"
-
-// This file will not be regenerated automatically.
-//
-// It serves as dependency injection for your app, add any dependencies you require here.
+import "graphql-server/prisma/db"
 
 type Resolver struct {
 	Prisma *db.PrismaClient

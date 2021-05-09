@@ -101,7 +101,8 @@ Example:
 - Category (ID) - Returns the category by ID
 - Customers - Returns all customers
 - Customer (ID) - Returns the customer by ID
-- Products - Returns all products
+- AllProducts - Returns all products
+- Products (categoryID) - Returns all products by category ID
 - Product (ID) - Returns the product by ID
 - SubProducts (productID) - Returns all subproducts by product ID
 - SubProduct (ID) - Returns the subproduct by ID
@@ -114,18 +115,25 @@ Example:
 
 ### Mutations
 - CreateCategory (name, imageURL) - Creates a category
-- DeleteCategory (ID) - Deletes a category by ID
-- AddProduct (categoryID) - Adds a product to a category by its ID
-- DeleteProduct (ID) - Deletes a product by ID
-- CreateSubProduct (productID, price, size, color, amount) - Creates a subproduct into a product by its ID
-- DeleteSubProduct (ID) - Deletes a subproduct by ID
+- EditCategory (id, name, imageURL) - Edits the category
+- DeleteCategory (ID) - Deletes the category by ID
+- AddProduct (categoryID, name, description, image_url) - Adds a product to a category by its ID
+- EditProduct (id, name, imageURL) - Edits the category
+- DeleteProduct (ID) - Deletes the product by ID
+- CreateSubProduct (productID, price, size, color, amount) - Creates a subproduct into the product by its ID
+- EditSubProduct (id, price, size, color, amount) - Edits the subproduct
+- DeleteSubProduct (ID) - Deletes the subproduct by ID
 - CreateCustomer (name, email, phone, address, region, ccNumber) - Creates a customer
+- EditCustomer (id, name, email, phone, address, region, ccNumber) - Edits the customer
 - DeleteCustomer (ID) - Deletes the customer by ID
 - AddOrder (customerID, amount, createdAt) - Adds an order to the customer by his ID
-- RemoveOrder (ID) - Removes an order by ID
-- AddSubProduct (orderID, price, size, color, amount) - Adds a product to the order by its ID
-- RemoveSubProduct (ID) - Removes a product from the order by ID
+- EditOrder (id, amount, createdAt) - Edits the order
+- RemoveOrder (ID) - Removes the order by ID
+- AddOrderedProduct (orderID, price, size, color, amount) - Adds a product to the order by its ID
+- EditOrderedProduct (id, price, size, color, amount) - Edits the ordered product
+- RemoveOrderedProduct (ID) - Removes the product from the order by ID
 - CreateAdmin (login, password) - Creates an admin
+- EditAdmin (id, login, password) - Edits the admin
 - DeleteAdmin (ID) - Deletes the admin by id
 
 > Data editing is not yet implemented

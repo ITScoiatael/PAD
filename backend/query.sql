@@ -21,7 +21,7 @@ CREATE TABLE Product (
   name TEXT NOT NULL,
   description TEXT NOT NULL,
   image_url TEXT NOT NULL,
-  category_id TEXT REFERENCES Categories(id)
+  category_id TEXT REFERENCES Category(id)
 );
 CREATE TABLE Sub_Product (
   id TEXT PRIMARY KEY,
@@ -29,7 +29,7 @@ CREATE TABLE Sub_Product (
   size TEXT NOT NULL,
   color TEXT NOT NULL,
   amount INTEGER NOT NULL,
-  product_id TEXT REFERENCES Products(id)
+  product_id TEXT REFERENCES Product(id)
 );
 CREATE TABLE Customer (
   id TEXT PRIMARY KEY,
@@ -44,11 +44,11 @@ CREATE TABLE 'Order' (
   id TEXT PRIMARY KEY,
   amount INTEGER NOT NULL,
   created_at TEXT NOT NULL,
-  customer_id TEXT REFERENCES Customers(id)
+  customer_id TEXT REFERENCES Customer(id)
 );
 CREATE TABLE OrderedProduct (
   id TEXT PRIMARY KEY,
   amount INTEGER NOT NULL,
-  order_id TEXT REFERENCES Orders(id),
-  sub_product_id TEXT REFERENCES Sub_Products(id)
+  order_id TEXT REFERENCES 'Order'(id),
+  sub_product_id TEXT REFERENCES Sub_Product(id)
 )

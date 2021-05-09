@@ -70,8 +70,8 @@ type Query {
   Orders(customer_id: ID!): [Order]
   Order(id: ID!): Order
 
-  OrderedSubProducts(order_id: ID!): [Sub_Product]
-  OrderedSubProduct(id: ID!): Sub_Product
+  OrderedProducts(order_id: ID!): [Ordered_Product]
+  OrderedProduct(id: ID!): Ordered_Product
 
   Admins: [Admin]
   Admin(id: ID!): Admin
@@ -96,7 +96,7 @@ type Mutation {
     image_url: String!
   ) : Product
   editProduct (
-    category_id: ID!
+    id: ID!
     name: String
     description: String
     image_url: String
@@ -111,7 +111,7 @@ type Mutation {
     amount: Int!
   ) : Sub_Product
   editSubProduct (
-    product_id: ID!
+    id: ID!
     price: Float
     size: String
     color: String
