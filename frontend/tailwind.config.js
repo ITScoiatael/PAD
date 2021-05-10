@@ -12,8 +12,9 @@ module.exports = {
         extend: {
             colors: {
                 emerald: colors.emerald,
-                gray: colors.trueGray
-            }
+                gray: colors.trueGray,
+                primary: '#9A9385',
+            },
         },
     },
     variants: {
