@@ -54,14 +54,14 @@
 ## Frontend
 
 ```bash
-# install dependencies
+# install packages
 $ npm install
-$ npm install nuxtjs/apollo
+$ npm install @nuxtjs/apollo
 $ npm install @nuxtjs/tailwindcss
 $ npm install @tailwindcss/forms
 $ npm install graphql-tag
 
-# serve with hot reload at localhost:3000
+# server with hot reload at http://localhost:3000/
 $ npm run dev
 
 # build for production and launch server
@@ -81,7 +81,9 @@ Installation and launch:
 ```bash
 $ cd backend
 $ go mod tidy
+$ go get github.com/prisma/prisma-client-go
 $ go run github.com/prisma/prisma-client-go generate
+$ go mod download github.com/shopspring/decimal
 $ cd prisma
 $ go run ./server.go
 ```
