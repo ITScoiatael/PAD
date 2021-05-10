@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/ITScoiatael/PAD">
-    <img src="images/logo128.png" alt="PAD Logo">
+    <img src="images/logo.png" width="196" height="196" alt="PAD Logo">
   </a>
 
   <h2 align="center">EShop project</h2>
@@ -148,11 +148,11 @@ Example:
 
 ###### Nuxt GraphQL Apollo
 - [Zhan](https://github.com/Vafailis)
-- [Aldiyar](https://github.com/AldiyarSergazy)
 
 ###### Frontend
 - [Artyom](https://github.com/ket02jfu)
 - [Daniyar](https://github.com/DanikBruh)
+- [Aldiyar](https://github.com/AldiyarSergazy)
 
 ###### Design
 - [Asima](https://github.com/AsiyaBl)
