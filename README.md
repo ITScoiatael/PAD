@@ -148,11 +148,11 @@ Example:
 
 ###### Nuxt GraphQL Apollo
 - [Zhan](https://github.com/Vafailis)
-- [Aldiyar](https://github.com/AldiyarSergazy)
 
 ###### Frontend
 - [Artyom](https://github.com/ket02jfu)
 - [Daniyar](https://github.com/DanikBruh)
+- [Aldiyar](https://github.com/AldiyarSergazy)
 
 ###### Design
 - [Asima](https://github.com/AsiyaBl)
