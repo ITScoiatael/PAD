@@ -3,6 +3,7 @@ package graph
 import (
 	"context"
 	"graphql-server/graph/generated"
+	"graphql-server/hash"
 	"graphql-server/prisma/db"
 
 	"github.com/google/uuid"
@@ -192,19 +193,27 @@ func (r *mutationResolver) RemoveOrderedProduct(ctx context.Context, id string) 
 }
 
 func (r *mutationResolver) CreateAdmin(ctx context.Context, login string, password string) (*db.AdminModel, error) {
+	hashedPassword, err := hash.HashPassword(password)
+	if err != nil {
+		return nil, err
+	}
 	return r.Prisma.Admin.CreateOne(
 		db.Admin.ID.Set(uuid.NewString()),
 		db.Admin.Login.Set(login),
-		db.Admin.Password.Set(password),
+		db.Admin.Password.Set(hashedPassword),
 	).Exec(ctx)
 }
 
 func (r *mutationResolver) EditAdmin(ctx context.Context, id string, login *string, password *string) (*db.AdminModel, error) {
+	hashedPassword, err := hash.HashPassword(*password)
+	if err != nil {
+		return nil, err
+	}
 	return r.Prisma.Admin.FindUnique(
 		db.Admin.ID.Equals(id),
 	).Update(
 		db.Admin.Login.Set(*login),
-		db.Admin.Password.Set(*password),
+		db.Admin.Password.Set(hashedPassword),
 	).Exec(ctx)
 }
 
