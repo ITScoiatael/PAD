@@ -7,7 +7,7 @@
       <span class = "bg-black h-1 w-full mr-4"></span>
     </div>
     <div class = " border-red-300 flex flex-col text-lg mb-60">
-      <div class = "w-auto  flex items-center justify-between px-40 py-20 " v-for="category in Categories" :key="category">
+      <div class = "w-auto flex items-center justify-between px-40 py-20 " v-for="category in Categories" :key="category">
         <div class = " h-80 w-72"> 
           <div class = "border-2 border-black w-full h-80">
             <img :src="category.image_url"
