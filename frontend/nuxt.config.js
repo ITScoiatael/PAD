@@ -8,11 +8,8 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'http://localhost:8080/static/logo128.png' }
-    ],
-    // script: [
-    //   { hid: 'stripe', src: 'должен быть скрипт но его пока нет)', defer: true }
-    // ]
+      { rel: 'icon', type: 'image/x-icon', href: 'logo.png' }
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

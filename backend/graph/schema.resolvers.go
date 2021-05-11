@@ -6,7 +6,6 @@ import (
 	"graphql-server/prisma/db"
 
 	"github.com/google/uuid"
-	"golang.org/x/crypto/bcrypt"
 )
 
 func (r *mutationResolver) CreateCategory(ctx context.Context, name string, imageURL string) (*db.CategoryModel, error) {
@@ -193,27 +192,19 @@ func (r *mutationResolver) RemoveOrderedProduct(ctx context.Context, id string) 
 }
 
 func (r *mutationResolver) CreateAdmin(ctx context.Context, login string, password string) (*db.AdminModel, error) {
-	hashedPassword, err := HashPassword(password)
-	if err != nil {
-		return nil, err
-	}
 	return r.Prisma.Admin.CreateOne(
 		db.Admin.ID.Set(uuid.NewString()),
 		db.Admin.Login.Set(login),
-		db.Admin.Password.Set(hashedPassword),
+		db.Admin.Password.Set(password),
 	).Exec(ctx)
 }
 
 func (r *mutationResolver) EditAdmin(ctx context.Context, id string, login *string, password *string) (*db.AdminModel, error) {
-	hashedPassword, err := HashPassword(*password)
-	if err != nil {
-		return nil, err
-	}
 	return r.Prisma.Admin.FindUnique(
 		db.Admin.ID.Equals(id),
 	).Update(
 		db.Admin.Login.Set(*login),
-		db.Admin.Password.Set(hashedPassword),
+		db.Admin.Password.Set(*password),
 	).Exec(ctx)
 }
 
@@ -313,15 +304,3 @@ func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
-
-//HashPassword hashes given password
-func HashPassword(password string) (string, error) {
-	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
-	return string(bytes), err
-}
-
-//CheckPassword hash compares raw password with it's hashed values
-func CheckPasswordHash(password, hash string) bool {
-	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
-	return err == nil
-}

@@ -3,14 +3,12 @@ package main
 import (
 	"graphql-server/graph"
 	"graphql-server/graph/generated"
-	"graphql-server/middleware"
 	"graphql-server/prisma/db"
 	"log"
 	"net/http"
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
-	"github.com/go-chi/chi"
 )
 
 const port = "8080"
@@ -27,12 +25,9 @@ func main() {
 		}
 	}()
 
-	router := chi.NewRouter()
-
-	router.Use(middleware.Middleware(*client))
-	router.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("../static"))))
-	router.Handle("/playground", playground.Handler("GraphQL playground", "/query"))
-	router.Handle("/query", handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{Prisma: client}})))
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("../static"))))
+	http.Handle("/playground", playground.Handler("GraphQL playground", "/query"))
+	http.Handle("/query", handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{Prisma: client}})))
 	log.Printf("Connect to http://localhost:%s/playground for GraphQL playground", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
