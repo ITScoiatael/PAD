@@ -55,6 +55,7 @@
 
 ```bash
 # install packages
+$ cd frontend
 $ npm install
 $ npm install @nuxtjs/apollo
 $ npm install @nuxtjs/tailwindcss
