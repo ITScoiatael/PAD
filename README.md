@@ -75,22 +75,23 @@ $ npm run generate
 
 
 ## Backend 
+
 <img align="right" src="https://img.shields.io/github/go-mod/go-version/ITScoiatael/PAD/main?filename=backend%2Fgo.mod&style=for-the-badge" alt="GoLang Version">
 <br>
 
 Installation and launch:
 ```bash
 $ cd backend
-$ go mod tidy
-$ go get github.com/prisma/prisma-client-go
+$ go get
 $ go run github.com/prisma/prisma-client-go generate
 $ go mod download github.com/shopspring/decimal
 $ cd prisma
 $ go run ./server.go
 ```
+### Install [Redis Server](https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504).
 
 GraphQL playground:
-http://localhost:8080/
+http://localhost:8080/playground
 
 ### IDs
 The online store database is built on the basis of UUID.
@@ -140,7 +141,6 @@ Example:
 - EditAdmin (id, login, password) - Edits the admin
 - DeleteAdmin (ID) - Deletes the admin by id
 
-> Data editing is not yet implemented
 
 ### Creators
 ###### Backend:
