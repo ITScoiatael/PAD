@@ -5,9 +5,8 @@
 
       <div
         class="min-h-screen hero-image bg-right-bottom bg-cover flex text-black"
-        style="background-image: url('../../images/hero-img.png');"
+        style="background-image: url(../../images/slavesImage.png);"
       >
-
         <div class="relative container mx-auto p-4 flex items-center z-10 justify-center">
           <div>
             <div class="content float-left py-4 px-5 my-5">
