@@ -20,7 +20,8 @@ CREATE TABLE Product (
   id TEXT PRIMARY KEY,
   name TEXT NOT NULL,
   description TEXT NOT NULL,
-  image_url TEXT NOT NULL,
+  manufacturer TEXT NOT NULL,
+  fabric TEXT NOT NULL,
   category_id TEXT REFERENCES Category(id)
 );
 CREATE TABLE Sub_Product (
@@ -50,5 +51,10 @@ CREATE TABLE OrderedProduct (
   id TEXT PRIMARY KEY,
   amount INTEGER NOT NULL,
   order_id TEXT REFERENCES 'Order'(id),
+  sub_product_id TEXT REFERENCES Sub_Product(id)
+);
+CREATE TABLE Images (
+  id TEXT PRIMARY KEY,
+  image_url TEXT NOT NULL,
   sub_product_id TEXT REFERENCES Sub_Product(id)
 )
