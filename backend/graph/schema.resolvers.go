@@ -1,5 +1,8 @@
 package graph
 
+// This file will be automatically regenerated based on the schema, any resolver implementations
+// will be copied through when generating and any unknown code will be moved to the end.
+
 import (
 	"context"
 	"graphql-server/graph/generated"
@@ -32,7 +35,7 @@ func (r *mutationResolver) DeleteCategory(ctx context.Context, id string) (*db.C
 	).Delete().Exec(ctx)
 }
 
-func (r *mutationResolver) AddProduct(ctx context.Context, categoryID string, name string, description string, imageURL string) (*db.ProductModel, error) {
+func (r *mutationResolver) AddProduct(ctx context.Context, categoryID string, name string, description string, fabric string, manufacturer string) (*db.ProductModel, error) {
 	_, err := r.Prisma.Category.FindUnique(
 		db.Category.ID.Equals(categoryID),
 	).Exec(ctx)
@@ -44,23 +47,53 @@ func (r *mutationResolver) AddProduct(ctx context.Context, categoryID string, na
 		db.Product.ID.Set(uuid.NewString()),
 		db.Product.Name.Set(name),
 		db.Product.Description.Set(description),
-		db.Product.ImageURL.Set(imageURL),
+		db.Product.Manufacturer.Set(manufacturer),
+		db.Product.Fabric.Set(fabric),
 		db.Product.CategoryID.Set(categoryID),
 	).Exec(ctx)
 }
 
-func (r *mutationResolver) EditProduct(ctx context.Context, id string, name *string, description *string, imageURL *string) (*db.ProductModel, error) {
+func (r *mutationResolver) EditProduct(ctx context.Context, id string, name *string, description *string) (*db.ProductModel, error) {
 	return r.Prisma.Product.FindUnique(
 		db.Product.ID.Equals(id),
 	).Update(
 		db.Product.Name.Set(*name),
-		db.Product.ImageURL.Set(*imageURL),
+		db.Product.Description.Set(*description),
 	).Exec(ctx)
 }
 
 func (r *mutationResolver) DeleteProduct(ctx context.Context, id string) (*db.ProductModel, error) {
 	return r.Prisma.Product.FindUnique(
 		db.Product.ID.Equals(id),
+	).Delete().Exec(ctx)
+}
+
+func (r *mutationResolver) AddImage(ctx context.Context, productID string, url string) (*db.ImageModel, error) {
+	_, err := r.Prisma.Product.FindUnique(
+		db.Product.ID.Equals(productID),
+	).Exec(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	return r.Prisma.Image.CreateOne(
+		db.Image.ID.Set(uuid.NewString()),
+		db.Image.URL.Set(url),
+		db.Image.ProductID.Set(productID),
+	).Exec(ctx)
+}
+
+func (r *mutationResolver) EditImage(ctx context.Context, id string, url *string) (*db.ImageModel, error) {
+	return r.Prisma.Image.FindUnique(
+		db.Image.ID.Equals(id),
+	).Update(
+		db.Image.URL.Set(*url),
+	).Exec(ctx)
+}
+
+func (r *mutationResolver) DeleteImage(ctx context.Context, id string) (*db.ImageModel, error) {
+	return r.Prisma.Image.FindUnique(
+		db.Image.ID.Equals(id),
 	).Delete().Exec(ctx)
 }
 
@@ -256,6 +289,16 @@ func (r *queryResolver) Products(ctx context.Context, categoryID string) ([]db.P
 func (r *queryResolver) Product(ctx context.Context, id string) (*db.ProductModel, error) {
 	return r.Prisma.Product.FindUnique(
 		db.Product.ID.Equals(id),
+	).Exec(ctx)
+}
+
+func (r *queryResolver) Images(ctx context.Context, productID string) ([]db.ImageModel, error) {
+	return r.Prisma.Image.FindMany().Exec(ctx)
+}
+
+func (r *queryResolver) Image(ctx context.Context, id string) (*db.ImageModel, error) {
+	return r.Prisma.Image.FindUnique(
+		db.Image.ID.Equals(id),
 	).Exec(ctx)
 }
 

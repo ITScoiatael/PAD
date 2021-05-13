@@ -5,6 +5,7 @@ DROP TABLE Sub_Product;
 DROP TABLE Customer;
 DROP TABLE 'Order';
 DROP TABLE OrderedProduct;
+DROP TABLE 'Image';
 -- CREATION
 CREATE TABLE Admin (
   id TEXT PRIMARY KEY,
@@ -53,8 +54,8 @@ CREATE TABLE OrderedProduct (
   order_id TEXT REFERENCES 'Order'(id),
   sub_product_id TEXT REFERENCES Sub_Product(id)
 );
-CREATE TABLE Images (
+CREATE TABLE 'Image' (
   id TEXT PRIMARY KEY,
-  image_url TEXT NOT NULL,
-  sub_product_id TEXT REFERENCES Sub_Product(id)
+  url TEXT NOT NULL,
+  product_id TEXT REFERENCES Product(id)
 )

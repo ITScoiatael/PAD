@@ -12,6 +12,7 @@ model Admin {
   login    String
   password String
 }
+
 model Category {
   id        String   @id
   name      String
@@ -56,6 +57,7 @@ model Product {
   fabric       String
   category_id  String?
   Category     Category?     @relation(fields: [category_id], references: [id])
+  Image        Image[]
   Sub_Product  Sub_Product[]
 }
 
@@ -67,13 +69,12 @@ model Sub_Product {
   amount         Int
   product_id     String?
   Product        Product?         @relation(fields: [product_id], references: [id])
-  Images         Images[]
   OrderedProduct OrderedProduct[]
 }
 
-model Images {
-  id             String      @id
-  image_url      String
-  sub_product_id String?
-  Sub_Product    Sub_Product? @relation(fields: [sub_product_id], references: [id])
+model Image {
+  id         String  @id
+  url        String
+  product_id String?
+  Product    Product? @relation(fields: [product_id], references: [id])
 }
