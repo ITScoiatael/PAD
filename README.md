@@ -57,11 +57,19 @@
 # install packages
 $ cd frontend
 $ npm install
+
+```
+### If not working try:
+```
 $ npm install @nuxtjs/apollo
 $ npm install @nuxtjs/tailwindcss
 $ npm install @tailwindcss/forms
 $ npm install graphql-tag
 
+
+```
+### Build project
+```
 # server with hot reload at http://localhost:3000/
 $ npm run dev
 
@@ -159,8 +167,6 @@ Example:
 - [Asima](https://github.com/AsiyaBl)
 - [Tima](https://github.com/Hicfok)
 
-###### Other
-- [Vlad](https://github.com/MiyRon-Code)
 
 Penetration | Ass we can | Dungeon Master
 
