@@ -66,6 +66,10 @@ $ npm install @nuxtjs/tailwindcss
 $ npm install @tailwindcss/forms
 $ npm install graphql-tag
 
+
+```
+### сборка проекта
+```
 # server with hot reload at http://localhost:3000/
 $ npm run dev
 
