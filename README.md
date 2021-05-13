@@ -59,7 +59,7 @@ $ cd frontend
 $ npm install
 
 ```
-### если возникли ошибки попробуйте:
+### If not working try:
 ```
 $ npm install @nuxtjs/apollo
 $ npm install @nuxtjs/tailwindcss
@@ -68,7 +68,7 @@ $ npm install graphql-tag
 
 
 ```
-### сборка проекта
+### Build project
 ```
 # server with hot reload at http://localhost:3000/
 $ npm run dev
