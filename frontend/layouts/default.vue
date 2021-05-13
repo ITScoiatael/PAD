@@ -1,10 +1,7 @@
 <template>
   <div>
     <Header/>
-    <HeroImage/>
-    <Categories/>
+      <Nuxt/>
     <Footer/>
-
-    <Nuxt/>
   </div>
 </template>
