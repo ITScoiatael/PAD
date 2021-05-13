@@ -57,6 +57,10 @@
 # install packages
 $ cd frontend
 $ npm install
+
+```
+### если возникли ошибки попробуйте:
+```
 $ npm install @nuxtjs/apollo
 $ npm install @nuxtjs/tailwindcss
 $ npm install @tailwindcss/forms
@@ -159,8 +163,6 @@ Example:
 - [Asima](https://github.com/AsiyaBl)
 - [Tima](https://github.com/Hicfok)
 
-###### Other
-- [Vlad](https://github.com/MiyRon-Code)
 
 Penetration | Ass we can | Dungeon Master
 
