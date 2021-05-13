@@ -1,15 +1,31 @@
+
+<script>
+import gql from 'graphql-tag';
+
+const SubProduct_QUERY = gql`
+    
+`
+
+export default {
+    layout: 'CatalogLayout',
+    apollo: {
+        Products: {
+            query: SubProduct_QUERY,
+            variables() {
+                return{
+                    id: this.$route.params.id
+                }
+            }
+        }, 
+    },
+
+}
+</script>
+
 <template>
   <div class="flex w-full flex-col h-full">
-    
-    <Header/>
 
-    <div class="w-auto flex justify-center items-center p-10 flex-row">
-      <span class="bg-black h-1 w-full mr-4"></span>
-      <div class="w-24">
-        <img src alt /> сюда картинку
-      </div>
-      <span class="bg-black h-1 w-full mr-4"></span>
-    </div>
+    <LineWithLogo/>
 
     <div class="w-auto flex justify-center items-center flex-col p-6 py-6">
       <div class="w-full flex justify-center items-center mb-5">
