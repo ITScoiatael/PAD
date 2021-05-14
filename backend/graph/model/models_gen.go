@@ -26,6 +26,11 @@ type Customer struct {
 	Orders   []*Order `json:"orders"`
 }
 
+type Image struct {
+	ID  string `json:"id"`
+	URL string `json:"url"`
+}
+
 type Order struct {
 	ID              string            `json:"id"`
 	Amount          int               `json:"amount"`
@@ -39,11 +44,13 @@ type OrderedProduct struct {
 }
 
 type Product struct {
-	ID          string        `json:"id"`
-	Name        string        `json:"name"`
-	Description string        `json:"description"`
-	ImageURL    string        `json:"image_url"`
-	SubProducts []*SubProduct `json:"sub_products"`
+	ID           string        `json:"id"`
+	Name         string        `json:"name"`
+	Description  string        `json:"description"`
+	Fabric       string        `json:"fabric"`
+	Manufacturer string        `json:"manufacturer"`
+	Images       []*Image      `json:"images"`
+	SubProducts  []*SubProduct `json:"sub_products"`
 }
 
 type SubProduct struct {

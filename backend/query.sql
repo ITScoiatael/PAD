@@ -5,6 +5,7 @@ DROP TABLE Sub_Product;
 DROP TABLE Customer;
 DROP TABLE 'Order';
 DROP TABLE OrderedProduct;
+DROP TABLE 'Image';
 -- CREATION
 CREATE TABLE Admin (
   id TEXT PRIMARY KEY,
@@ -22,7 +23,7 @@ CREATE TABLE Product (
   description TEXT NOT NULL,
   manufacturer TEXT NOT NULL,
   fabric TEXT NOT NULL,
-  category_id TEXT REFERENCES Category(id)
+  category_id TEXT REFERENCES Category(id) ON DELETE CASCADE
 );
 CREATE TABLE Sub_Product (
   id TEXT PRIMARY KEY,
@@ -30,7 +31,7 @@ CREATE TABLE Sub_Product (
   size TEXT NOT NULL,
   color TEXT NOT NULL,
   amount INTEGER NOT NULL,
-  product_id TEXT REFERENCES Product(id)
+  product_id TEXT REFERENCES Product(id) ON DELETE CASCADE
 );
 CREATE TABLE Customer (
   id TEXT PRIMARY KEY,
@@ -45,16 +46,16 @@ CREATE TABLE 'Order' (
   id TEXT PRIMARY KEY,
   amount INTEGER NOT NULL,
   created_at TEXT NOT NULL,
-  customer_id TEXT REFERENCES Customer(id)
+  customer_id TEXT REFERENCES Customer(id) ON DELETE CASCADE
 );
 CREATE TABLE OrderedProduct (
   id TEXT PRIMARY KEY,
   amount INTEGER NOT NULL,
   order_id TEXT REFERENCES 'Order'(id),
-  sub_product_id TEXT REFERENCES Sub_Product(id)
+  sub_product_id TEXT REFERENCES Sub_Product(id) ON DELETE CASCADE
 );
-CREATE TABLE Images (
+CREATE TABLE 'Image' (
   id TEXT PRIMARY KEY,
-  image_url TEXT NOT NULL,
-  sub_product_id TEXT REFERENCES Sub_Product(id)
+  url TEXT NOT NULL,
+  product_id TEXT REFERENCES Product(id) ON DELETE CASCADE
 )

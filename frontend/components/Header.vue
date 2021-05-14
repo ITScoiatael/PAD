@@ -16,18 +16,17 @@
       </div>
       <div class="w-full block flex-grow lg:flex lg:w-auto font-gilroy font-bold">
         <div class="text-sm lg:flex-grow text-center">
-          <a
-            href="/"
+          <NuxtLink to="/"
             class="text-white block mt-4 lg:inline-block lg:mt-0 text-teal-lighter uppercase hover:text-gray-500 mx-12"
-          >Home</a>
-          <a
+          >Home</NuxtLink>
+          <NuxtLink to="/about"
             href="#responsive-header"
             class="text-white block mt-4 lg:inline-block lg:mt-0 text-teal-lighter uppercase hover:text-gray-500 mx-12"
-          >About us</a>
-          <a
+          >About us</NuxtLink>
+          <NuxtLink to="/contact"
             href="#responsive-header"
             class="text-white block mt-4 lg:inline-block lg:mt-0 text-teal-lighter uppercase hover:text-gray-500 mx-12"
-          >contact us</a>
+          >contact us</NuxtLink>
         </div>
       </div>
     </nav>

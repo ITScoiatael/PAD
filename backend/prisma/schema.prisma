@@ -11,36 +11,40 @@ model Admin {
   id       String @id
   login    String
   password String
+
 }
+
 model Category {
-  id        String   @id
+  id        String    @id
   name      String
   image_url String
-  Product   Product[]
+  Products  Product[]
+
 }
 
 model Customer {
-  id        String @id
+  id        String  @id
   name      String
   email     String
   phone     String
   address   String
   region    String
   cc_number String
-  Order     Order[]
+  Orders    Order[]
+
 }
 
 model Order {
-  id             String          @id
-  amount         Int
-  created_at     String
-  customer_id    String?
-  Customer       Customer?        @relation(fields: [customer_id], references: [id])
-  OrderedProduct OrderedProduct[]
+  id              String           @id
+  amount          Int
+  created_at      String
+  customer_id     String?
+  Customer        Customer?        @relation(fields: [customer_id], references: [id])
+  OrderedProducts OrderedProduct[]
 }
 
 model OrderedProduct {
-  id             String      @id
+  id             String       @id
   amount         Int
   order_id       String?
   sub_product_id String?
@@ -49,31 +53,31 @@ model OrderedProduct {
 }
 
 model Product {
-  id           String       @id
+  id           String        @id
   name         String
   description  String
   manufacturer String
   fabric       String
   category_id  String?
   Category     Category?     @relation(fields: [category_id], references: [id])
-  Sub_Product  Sub_Product[]
+  Images       Image[]
+  Sub_Products Sub_Product[]
 }
 
 model Sub_Product {
-  id             String          @id
-  price          Float
-  size           String
-  color          String
-  amount         Int
-  product_id     String?
-  Product        Product?         @relation(fields: [product_id], references: [id])
-  Images         Images[]
-  OrderedProduct OrderedProduct[]
+  id              String           @id
+  price           Float
+  size            String
+  color           String
+  amount          Int
+  product_id      String?
+  Product         Product?         @relation(fields: [product_id], references: [id])
+  OrderedProducts OrderedProduct[]
 }
 
-model Images {
-  id             String      @id
-  image_url      String
-  sub_product_id String?
-  Sub_Product    Sub_Product? @relation(fields: [sub_product_id], references: [id])
+model Image {
+  id         String   @id
+  url        String
+  product_id String?
+  Products   Product? @relation(fields: [product_id], references: [id])
 }

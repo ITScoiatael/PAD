@@ -15,8 +15,15 @@ type Product {
   id: ID!
   name: String!
   description: String!
-  image_url: String!
+  fabric: String!
+  manufacturer: String!
+  images: [Image!]
   sub_products: [Sub_Product!]
+}
+
+type Image {
+  id: ID!
+  url: String!
 }
 
 type Sub_Product {
@@ -64,6 +71,9 @@ type Query {
   Products(category_id: ID!): [Product]
   Product(id: ID!): Product
 
+  Images(product_id: ID!): [Image]
+  Image(id: ID!): Image
+
   SubProducts(product_id: ID!): [Sub_Product]
   SubProduct(id: ID!): Sub_Product
 
@@ -100,9 +110,18 @@ type Mutation {
     id: ID!
     name: String
     description: String
-    image_url: String
   ) : Product
   deleteProduct (id: ID!): Product
+
+  addImage (
+    product_id: ID!
+    url: String!
+  ) : Image
+  editImage (
+    id: ID!
+    url: String
+  ) : Image
+  deleteImage (id: ID!): Image
 
   createSubProduct (
     product_id: ID!
