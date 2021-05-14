@@ -251,7 +251,7 @@ func (r *mutationResolver) DeleteAdmin(ctx context.Context, id string) (*db.Admi
 }
 
 func (r *queryResolver) Categories(ctx context.Context) ([]*db.CategoryModel, error) {
-	categories, err := r.Prisma.Category.FindMany().With(db.Category.Products.Fetch()).Exec(ctx)
+	categories, err := r.Prisma.Category.FindMany().With(db.Category.Products.Fetch().With(db.Product.SubProducts.Fetch(), db.Product.Images.Fetch())).Exec(ctx)
 
 	if err != nil {
 		return nil, err
