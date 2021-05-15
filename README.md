@@ -56,16 +56,23 @@
 ```bash
 # install packages
 $ cd frontend
+```bash
 $ npm install
-
+```
 ```
 ### If not working try:
-```
+```bash
 $ npm install @nuxtjs/apollo
+```
+```bash
 $ npm install @nuxtjs/tailwindcss
+```
+```bash
 $ npm install @tailwindcss/forms
+```
+```bash
 $ npm install graphql-tag
-
+```
 
 ```
 ### Build project
@@ -90,10 +97,20 @@ $ npm run generate
 Installation and launch:
 ```bash
 $ cd backend
+```
+```bash
 $ go get
+```
+```bash
 $ go run github.com/prisma/prisma-client-go generate
+```
+```bash
 $ go mod download github.com/shopspring/decimal
+```
+```bash
 $ cd prisma
+```
+```bash
 $ go run ./server.go
 ```
 ### Install [Redis Server](https://github.com/microsoftarchive/redis/releases/tag/win-3.0.504).
