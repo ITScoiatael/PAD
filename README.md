@@ -56,6 +56,7 @@
 ```bash
 # install packages
 $ cd frontend
+```
 ```bash
 $ npm install
 ```
