@@ -74,16 +74,20 @@ $ npm install @tailwindcss/forms
 $ npm install graphql-tag
 ```
 
-```
 ### Build project
-```
+```bash
 # server with hot reload at http://localhost:3000/
 $ npm run dev
+```
 
+```bash
 # build for production and launch server
 $ npm run build
+```
+```bash
 $ npm run start
-
+```
+```bash
 # generate static project
 $ npm run generate
 ```
