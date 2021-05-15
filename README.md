@@ -60,7 +60,6 @@ $ cd frontend
 ```bash
 $ npm install
 ```
-```
 ### If not working try:
 ```bash
 $ npm install @nuxtjs/apollo
