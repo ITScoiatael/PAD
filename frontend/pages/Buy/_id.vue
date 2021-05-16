@@ -24,9 +24,7 @@ export default {
 
 <template>
   <div class="flex w-full flex-col h-full">
-
     <LineWithLogo/>
-
     <div class="w-auto flex justify-center items-center flex-col p-6 py-6">
       <div class="w-full flex justify-center items-center mb-5">
         <div class="w-20 h-20 border-2 border-black mr-2">фото товара</div>
