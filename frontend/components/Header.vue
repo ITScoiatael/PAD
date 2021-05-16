@@ -1,6 +1,6 @@
 <template>
   <header class="bg-black flex items-center justify-between flex-wrap bg-teal p-2 shadow-md font-medium">
-    <OurLogo />
+    <Logo/>
     <nav
       class="">
       <div class="block lg:hidden">
