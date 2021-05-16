@@ -2,8 +2,6 @@
 import gql from 'graphql-tag';
 
 
-
-
 const Categories_QUERY = gql`
     query {
       Categories{
@@ -13,6 +11,8 @@ const Categories_QUERY = gql`
       }
     }
 `
+
+
 export default {
     layout: 'CatalogLayout',
     apollo: {
@@ -20,15 +20,17 @@ export default {
             query: Categories_QUERY,
         }, 
     },
+    // data () {
+    //     return {
+    //         Categories: []
+    //     }
+    // },
     methods:{
         openCatalog(category){
           this.$router.push('/Catalog/'+ category.id)
         },
     },
 }
-
-
-
 </script>
 
 <template>
@@ -43,7 +45,7 @@ export default {
             class="overflow-hidden rounded-lg shadow-lg"
             @click.prevent="openCatalog(category)"
           >
-            <img :src="category.image_url" alt="Placeholder" class="block h-auto w-full" />
+            <img :src="`http://localhost:8080/static/`+category.image_url" alt="Placeholder" class="block h-auto w-full" />
 
             <header class="flex items-center justify-between leading-tight p-4 md:p-4">
               <h1 class="text-lg">
