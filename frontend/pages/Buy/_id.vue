@@ -78,7 +78,7 @@ export default {
           </div>
           <div class="mr-10 flex flex-row items-center">
             <div class="text-gray-400">Color:</div>
-            <div class="border-цршеу-300 border-2 h-4 w-4 ml-2 bg-yellow-300 rounded-sm">{{Product.sub_products[index].color}}</div>
+            <div class="border-white-300 border-2 h-4 w-4 ml-2 bg-yellow-300 rounded-sm">{{Product.sub_products[index].color}}</div>
           </div>
           <div class="mr-10 flex flex-row items-center">
             <div class="text-gray-400">Size:</div>
