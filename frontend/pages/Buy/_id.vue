@@ -42,7 +42,7 @@ export default {
       decrenemtIndex(){
         if(0 < this.index)
           this.index--
-      }
+      },
     },
     apollo: {
         Product: {
