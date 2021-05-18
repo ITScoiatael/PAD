@@ -24,9 +24,9 @@
              <div class = "text-2xl font-medium pb-2">${{Product.sub_products[0].price}}</div>
            </div>
            <div class = "w-full ml-3 h-9 flex items-center pb-1">
-              <button class = "w-8 h-8 border-black border-2 rounded-md bg-white focus:bg-gray-400 focus:outline-none" v-for="(sub_product, idx) in Product.sub_products" :key="idx" >
-                {{sub_product.color}}
-                </button>
+              <button class = "w-8 h-8 border-black border-2 rounded-md bg-white focus:bg-gray-400 focus:outline-none" v-for="(color, idx) in Colors" :key="idx" style="background: `${color}`;">
+                {{color}}
+              </button> 
            </div>
            <div class = "w-full ml-3 h-9 flex items-center pt-1">
              <button class = "w-8 h-8 border-black border-2 rounded-md focus:bg-black focus:text-white hover:bg-black hover:text-white" v-for="(size, index) in Sizes" :key="index">{{size}}</button>
@@ -49,7 +49,7 @@
          </div>
          <div class = "w-full py-4 flex justify-center items-center text-white ">
            <div class = "w-300 h-full bg-black flex flex-col rounded-xl justify-start items-center px-4 py-2">
-             <div class = "w-full text-2xl">About product</div>
+             <div class = "w-full text-2xl">{{Product.name}}</div>
              <div class = " w-full h-full text-xl flex items-center pb-8">{{Product.description}}</div>
            </div>
          </div>
@@ -128,9 +128,12 @@ export default {
     computed: {
       Sizes: function (){
         let temp = []
-        for(let i = 0; i < this.Product.sub_products.length - 1; i++){
-          temp[i] = this.Product.sub_products[i].size
-        }
+        for(let i = 0; i < this.Product.sub_products.length - 1; i++) temp[i] = this.Product.sub_products[i].size
+        return unique(temp)
+      },
+      Colors: function (){
+        let temp = []
+        for(let i = 0; i < this.Product.sub_products.length - 1; i++) temp[i] = this.Product.sub_products[i].color
         return unique(temp)
       }
     },
