@@ -18,6 +18,7 @@ import (
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/gomodule/redigo/redis"
 	"github.com/google/uuid"
+	"github.com/rs/cors"
 )
 
 const port = "8080"
@@ -38,13 +39,15 @@ func main() {
 	}()
 
 	initCache()
-	http.Handle("/", http.FileServer(http.Dir("../pages")))
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("../static"))))
 	http.HandleFunc("/signin", signin)
 	http.HandleFunc("/welcome", welcome)
 	http.HandleFunc("/refresh", refresh)
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{"http://localhost:3000"},
+	})
 	http.Handle("/playground", playground.Handler("GraphQL playground", "/query"))
-	http.Handle("/query", handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{Prisma: client}})))
+	http.Handle("/query", c.Handler(handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{Prisma: client}}))))
 
 	log.Printf("Connect to http://localhost:%s/", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))

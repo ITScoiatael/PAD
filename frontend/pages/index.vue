@@ -2,6 +2,7 @@
     <section>
         <HeroImage/>
         <Categories/>
+        <Services />
     </section>
 </template>
 

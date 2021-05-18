@@ -36,7 +36,7 @@ export default {
     },
     methods:{
         openCatalog(category){
-          this.$router.push('/Catalog/'+ category.id)
+          this.$router.push('/catalog/'+ category.id)
         },
     },
 }

@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     ClickBy(Product) {
-      this.$router.push("/Buy/" + Product.id);
+      this.$router.push("/buy/" + Product.id);
     }
   }
 };
