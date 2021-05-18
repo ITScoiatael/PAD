@@ -44,7 +44,7 @@ func main() {
 	http.HandleFunc("/welcome", welcome)
 	http.HandleFunc("/refresh", refresh)
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000"}
+		AllowedOrigins: []string{"http://localhost:3000"},
 	})
 	http.Handle("/playground", playground.Handler("GraphQL playground", "/query"))
 	http.Handle("/query", c.Handler(handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{Prisma: client}}))))
