@@ -50,6 +50,8 @@
   </ol>
 </details>
 
+## Design
+https://www.figma.com/file/b7455MmwLY8nQaa9heXek5/POD-team-library?node-id=395%3A110
 
 ## Frontend
 
