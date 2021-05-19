@@ -149,7 +149,6 @@ Example:
 ### Creators
 ###### Backend:
 - [Slava](https://github.com/Wedyarit)
-- [Denis](https://github.com/FaneNohman)
 
 ###### Nuxt GraphQL Apollo
 - [Zhan](https://github.com/Vafailis)
