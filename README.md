@@ -82,7 +82,9 @@ $ npm run generate
 Installation and launch:
 ```bash
 $ cd backend
+$ cd prisma
 $ go get
+$ cd ..
 $ go run github.com/prisma/prisma-client-go generate
 $ go mod download github.com/shopspring/decimal
 $ cd prisma
