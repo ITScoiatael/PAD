@@ -50,17 +50,15 @@
   </ol>
 </details>
 
+## Design
+https://www.figma.com/file/b7455MmwLY8nQaa9heXek5/POD-team-library?node-id=395%3A110
 
 ## Frontend
 
 ```bash
 # install packages
 $ cd frontend
-$ npm install
-$ npm install @nuxtjs/apollo
-$ npm install @nuxtjs/tailwindcss
-$ npm install @tailwindcss/forms
-$ npm install graphql-tag
+$ npm i
 
 # server with hot reload at http://localhost:3000/
 $ npm run dev
@@ -147,7 +145,6 @@ Example:
 ### Creators
 ###### Backend:
 - [Slava](https://github.com/Wedyarit)
-- [Denis](https://github.com/FaneNohman)
 
 ###### Nuxt GraphQL Apollo
 - [Zhan](https://github.com/Vafailis)
