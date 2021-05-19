@@ -11,7 +11,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: theme => ({
-        'hero-image': "url('http://localhost:8080/static/slavesImage.png')"
+        'hero-image': "url('http://localhost:8080/static/slavesImage.png')",
+        'GrayImage': "url('http://localhost:8080/static/Background.png')",
       }),
       backgroundSize: {
         'auto': 'auto',
