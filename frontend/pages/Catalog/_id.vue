@@ -14,7 +14,7 @@
         <button
           @click.prevent="ClickBy(Product)"
           class="mt-2 w-full h-8 px-3 flex justify-center items-center bg-gray-600 text-white hover:text-gray-300"
-        >price: ${{Product.sub_products[0].price}}</button>
+        >{{Product.name}}</button>
       </div>
     </div>
   </div>
