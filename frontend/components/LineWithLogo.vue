@@ -4,6 +4,6 @@
       <div class="w-24">
         <img src="../../images/square.png" alt />
       </div>
-      <span class="bg-black h-1 w-full mr-4"></span>
+      <span class="bg-black h-1 w-full ml-4"></span>
     </div>
 </template>
