@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <section>
         asdasd
     </section>
@@ -12,3 +13,11 @@ export default{
     }
 }
 </script>
+=======
+  <section>
+    <div class="min-h-screen bg-GrayImage bg-no-repeat">
+        
+    </div>
+  </section>
+</template>
+>>>>>>> 73dbf1bc4f29960b2dbd8388c469aa81893fa41b

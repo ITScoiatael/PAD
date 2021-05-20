@@ -1,7 +1,8 @@
 <template>
-    <section>
+    <section class="bg-GrayImage">
         <HeroImage/>
         <Categories/>
+        <LineWithLogo/>
         <Services />
     </section>
 </template>

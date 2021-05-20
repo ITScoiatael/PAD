@@ -121,23 +121,24 @@ type ComplexityRoot struct {
 	}
 
 	Query struct {
-		Admin           func(childComplexity int, id string) int
-		Admins          func(childComplexity int) int
-		AllProducts     func(childComplexity int) int
-		Categories      func(childComplexity int) int
-		Category        func(childComplexity int, id string) int
-		Customer        func(childComplexity int, id string) int
-		Customers       func(childComplexity int) int
-		Image           func(childComplexity int, id string) int
-		Images          func(childComplexity int, productID string) int
-		Order           func(childComplexity int, id string) int
-		OrderedProduct  func(childComplexity int, id string) int
-		OrderedProducts func(childComplexity int, orderID string) int
-		Orders          func(childComplexity int, customerID string) int
-		Product         func(childComplexity int, id string) int
-		Products        func(childComplexity int, categoryID string) int
-		SubProduct      func(childComplexity int, id string) int
-		SubProducts     func(childComplexity int, productID string) int
+		Admin              func(childComplexity int, id string) int
+		Admins             func(childComplexity int) int
+		AllProducts        func(childComplexity int) int
+		Categories         func(childComplexity int) int
+		Category           func(childComplexity int, id string) int
+		Customer           func(childComplexity int, id string) int
+		Customers          func(childComplexity int) int
+		Image              func(childComplexity int, id string) int
+		Images             func(childComplexity int, productID string) int
+		Order              func(childComplexity int, id string) int
+		OrderedProduct     func(childComplexity int, id string) int
+		OrderedProducts    func(childComplexity int, orderID string) int
+		Orders             func(childComplexity int, customerID string) int
+		Product            func(childComplexity int, id string) int
+		Products           func(childComplexity int, categoryID string) int
+		SubProduct         func(childComplexity int, id string) int
+		SubProductByParams func(childComplexity int, productID string, size string, color string) int
+		SubProducts        func(childComplexity int, productID string) int
 	}
 
 	SubProduct struct {
@@ -187,6 +188,7 @@ type QueryResolver interface {
 	Image(ctx context.Context, id string) (*db.ImageModel, error)
 	SubProducts(ctx context.Context, productID string) ([]*db.SubProductModel, error)
 	SubProduct(ctx context.Context, id string) (*db.SubProductModel, error)
+	SubProductByParams(ctx context.Context, productID string, size string, color string) (*db.SubProductModel, error)
 	Orders(ctx context.Context, customerID string) ([]*db.OrderModel, error)
 	Order(ctx context.Context, id string) (*db.OrderModel, error)
 	OrderedProducts(ctx context.Context, orderID string) ([]*db.OrderedProductModel, error)
@@ -880,6 +882,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.SubProduct(childComplexity, args["id"].(string)), true
 
+	case "Query.SubProductByParams":
+		if e.complexity.Query.SubProductByParams == nil {
+			break
+		}
+
+		args, err := ec.field_Query_SubProductByParams_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.SubProductByParams(childComplexity, args["product_id"].(string), args["size"].(string), args["color"].(string)), true
+
 	case "Query.SubProducts":
 		if e.complexity.Query.SubProducts == nil {
 			break
@@ -1068,6 +1082,7 @@ type Query {
   Image(id: ID!): Image
 
   SubProducts(product_id: ID!): [Sub_Product]
+  SubProductByParams(product_id: ID!, size: String!, color: String!): Sub_Product
   SubProduct(id: ID!): Sub_Product
 
   Orders(customer_id: ID!): [Order]
@@ -2104,6 +2119,39 @@ func (ec *executionContext) field_Query_Products_args(ctx context.Context, rawAr
 		}
 	}
 	args["category_id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_SubProductByParams_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["product_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("product_id"))
+		arg0, err = ec.unmarshalNID2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["product_id"] = arg0
+	var arg1 string
+	if tmp, ok := rawArgs["size"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("size"))
+		arg1, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["size"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["color"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("color"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["color"] = arg2
 	return args, nil
 }
 
@@ -4592,6 +4640,45 @@ func (ec *executionContext) _Query_SubProduct(ctx context.Context, field graphql
 	return ec.marshalOSub_Product2ᚖgraphqlᚑserverᚋgraphᚋmodelᚐSubProduct(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_SubProductByParams(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_SubProductByParams_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().SubProductByParams(rctx, args["product_id"].(string), args["size"].(string), args["color"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*db.SubProductModel)
+	fc.Result = res
+	return ec.marshalOSub_Product2ᚖgraphqlᚑserverᚋgraphᚋmodelᚐSubProduct(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_Orders(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -6660,6 +6747,17 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_SubProduct(ctx, field)
+				return res
+			})
+		case "SubProductByParams":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_SubProductByParams(ctx, field)
 				return res
 			})
 		case "Orders":

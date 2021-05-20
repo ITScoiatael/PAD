@@ -362,6 +362,14 @@ func (r *queryResolver) SubProduct(ctx context.Context, id string) (*db.SubProdu
 	).Exec(ctx)
 }
 
+func (r *queryResolver) SubProductByParams(ctx context.Context, productID string, size string, color string) (*db.SubProductModel, error) {
+	return r.Prisma.SubProduct.FindFirst(
+		db.SubProduct.Size.Equals(size),
+		db.SubProduct.Color.Equals(color),
+		db.SubProduct.ProductID.Equals(productID),
+	).Exec(ctx)
+}
+
 func (r *queryResolver) Orders(ctx context.Context, customerID string) ([]*db.OrderModel, error) {
 	orders, err := r.Prisma.Order.FindMany(db.Order.CustomerID.Equals(customerID)).With(db.Order.OrderedProducts.Fetch()).Exec(ctx)
 
