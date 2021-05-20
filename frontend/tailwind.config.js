@@ -65,9 +65,16 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      transform: ['hover', 'focus'],
+      scale: ['active', 'group-hover'],
+    },
   },
   plugins: [
     require("@tailwindcss/forms")
   ],
+  corePlugins: {
+    // ...
+   transform: true,
+  }
 }
