@@ -3,6 +3,7 @@
     <section>
         asdasd
     </section>
+<<<<<<< HEAD
 </template>
 <script>
 export default{
@@ -21,3 +22,6 @@ export default{
   </section>
 </template>
 >>>>>>> 73dbf1bc4f29960b2dbd8388c469aa81893fa41b
+=======
+</template>
+>>>>>>> parent of 326cb16 (update catalog component)

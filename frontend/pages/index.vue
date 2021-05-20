@@ -8,12 +8,5 @@
 </template>
 
 <script>
-import config from '../env'
-
-export default {
-    mounted(){
-        this.env = config;
-        console.log(this.env)
-    }
-}
+export default {}
 </script>
