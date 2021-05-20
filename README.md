@@ -110,7 +110,6 @@ Example:
 - Products (categoryID) - Returns all products by category ID
 - Product (ID) - Returns the product by ID
 - SubProducts (productID) - Returns all subproducts by product ID
-- SubProductByParams (productID, color, size) - Returns the subproduct by its parameters
 - SubProduct (ID) - Returns the subproduct by ID
 - Orders (customerID) - Returns all orders by customer ID
 - Order (ID) - Returns the order by ID

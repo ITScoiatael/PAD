@@ -76,7 +76,6 @@ type Query {
 
   SubProducts(product_id: ID!): [Sub_Product]
   SubProduct(id: ID!): Sub_Product
-  SubProductByParams(product_id: ID!, size: String!, color: String!): Sub_Product
 
   Orders(customer_id: ID!): [Order]
   Order(id: ID!): Order

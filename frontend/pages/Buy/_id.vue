@@ -39,7 +39,7 @@
              <div class = "w-auto mr-2 flex items-center justify-center">
               <button @click.prevent="decrenemtAmount()" class="w-5 h-5 outline-none rounded-3xl flex items-center justify-center text-white bg-gray-700 text-md hover:bg-gray-800 focus:outline-none">-</button>
              </div>
-             <div class = "w-20 bg-white h-9 rounded-md flex justify-center items-center text-xl overflow-x-auto">{{Amount}}</div>
+             <input class = "w-20 bg-white h-9 rounded-md flex justify-center items-center text-xl overflow-x-auto" v-model="Amount" />
              <div class = "w-auto ml-2">
               <button @click.prevent="incremectAmount()" class="w-5 h-5 outline-none rounded-3xl flex items-center justify-center text-white bg-gray-700 text-md hover:bg-gray-800 focus:outline-none">+</button>
              </div>

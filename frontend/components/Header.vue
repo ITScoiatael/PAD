@@ -18,10 +18,15 @@
           </svg>
         </div>
       </div>
+<<<<<<< HEAD
       <div
         class="w-full block flex-grow lg:flex lg:w-auto font-gilroy font-medium"
       >
         <div class="text-sm lg:flex-grow text-center text-white uppercase">
+=======
+      <div class="w-full block flex-grow lg:flex lg:w-auto font-bold">
+        <div class="text-sm lg:flex-grow text-center">
+>>>>>>> 82305d71b31046ab1fdbef77b58697aab81dfeea
           <NuxtLink
             to="/"
             class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-gray-500 mx-12"
