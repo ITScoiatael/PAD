@@ -7,7 +7,7 @@
         >
           <div>
             <div class="content float-left py-4 px-5 my-5">
-              <div class="text-center mb-3 sm:text-7xl">high quality and cheap</div>
+              <div class="text-center mb-3 text-4xl sm:text-6xl md:text-7xl">high quality and cheap</div>
             </div>
           </div>
         </div>

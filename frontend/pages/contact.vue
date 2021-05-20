@@ -1,16 +1,14 @@
 <template>
   <section>
-    <div class="min-h-screen bg-GrayImage bg-no-repeat font-gilroy text-white">
+    <div class="min-h-screen bg-GrayImage font-gilroy text-white">
       <div class="py-20">
-        <h2 class="text-center font-serif uppercase text-4xl xl:text-3xl">
-          contact us
-        </h2>
+        <h2 class="text-center uppercase text-4xl xl:text-3xl">contact us</h2>
       </div>
 
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 uppercase gap-y-10 gap-x-10 lg:py-40 lg:px-60"
+        class="grid grid-cols-1 sm:grid-cols-2 uppercase gap-x-10 px-10 lg:py-20 xl:px-60"
       >
-        <div class="p-10 rounded-xl text-xs xl:text-sm">
+        <div class="py-20 text-xs xl:text-sm">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita
           optio voluptatum rem mollitia veritatis consequatur error quis,
           eveniet, accusantium odit repudiandae amet incidunt corrupti,
@@ -26,18 +24,12 @@
           inventore distinctio tenetur nulla quibusdam recusandae ad cumque
           earum, itaque quos fuga placeat rem esse? Odio est ipsa fugiat hic
           quidem esse corrupti placeat atque temporibus laborum, quaerat at
-          facilis ea earum reprehenderit omnis quo culpa nemo! Iure blanditiis
-          fugit aut ipsum, tempora amet facere? Veritatis porro voluptatibus
-          blanditiis alias repudiandae doloribus similique. Pariatur consectetur
-          soluta eligendi, culpa odio, veritatis repellendus delectus aut
-          doloremque commodi, sit quo modi at reprehenderit nam magni facere ex
-          quis. Minima incidunt
+          facilis ea earum reprehenderit omnis quo culpa nemo!
         </div>
-        <div class="rounded-xl">
+        <div class="rounded-xl flex">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d363.3226214687666!2d76.90517095407463!3d43.23924437960225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883691c0b9e085d%3A0xff30061e256f725e!2sLimon.kz!5e0!3m2!1sru!2skz!4v1621423318810!5m2!1sru!2skz"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.5829940197646!2d76.902816515768!3d43.23920198711958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x388368965b9aaaaf%3A0xd069a7a565591d4e!2z0JDQutCw0LTQtdC80LjRjyDQqNCQ0JMg0JDQu9C80LDRgtGL!5e0!3m2!1sru!2skz!4v1621502882743!5m2!1sru!2skz"
             width="600"
-            height="450"
             style="border: 0"
             allowfullscreen=""
             loading="lazy"
