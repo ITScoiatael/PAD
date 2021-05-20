@@ -14,7 +14,7 @@
           </svg>
         </div>
       </div>
-      <div class="w-full block flex-grow lg:flex lg:w-auto font-gilroy font-bold">
+      <div class="w-full block flex-grow lg:flex lg:w-auto font-bold">
         <div class="text-sm lg:flex-grow text-center">
           <NuxtLink
             to="/"
